@@ -16,6 +16,7 @@ _$_SubscriptionModel _$$_SubscriptionModelFromJson(Map<String, dynamic> json) =>
           .toList(),
       minPrice: json['minPrice'] as int,
       maxPrice: json['maxPrice'] as int,
+      minFloorArea: json['minFloorArea'] as int,
       locations: (json['locations'] as List<dynamic>)
           .map((e) => LocationModel.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -30,5 +31,6 @@ Map<String, dynamic> _$$_SubscriptionModelToJson(
       'estateTypes': instance.estateTypes,
       'minPrice': instance.minPrice,
       'maxPrice': instance.maxPrice,
+      'minFloorArea': instance.minFloorArea,
       'locations': instance.locations,
     };

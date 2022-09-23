@@ -13,6 +13,7 @@ class SubscriptionModel with _$SubscriptionModel {
     required List<String> estateTypes,
     required int minPrice,
     required int maxPrice,
+    required int minFloorArea,
     required List<LocationModel> locations,
   }) = _SubscriptionModel;
 

@@ -26,6 +26,7 @@ mixin _$SubscriptionModel {
   List<String> get estateTypes => throw _privateConstructorUsedError;
   int get minPrice => throw _privateConstructorUsedError;
   int get maxPrice => throw _privateConstructorUsedError;
+  int get minFloorArea => throw _privateConstructorUsedError;
   List<LocationModel> get locations => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,6 +47,7 @@ abstract class $SubscriptionModelCopyWith<$Res> {
       List<String> estateTypes,
       int minPrice,
       int maxPrice,
+      int minFloorArea,
       List<LocationModel> locations});
 }
 
@@ -66,6 +68,7 @@ class _$SubscriptionModelCopyWithImpl<$Res>
     Object? estateTypes = freezed,
     Object? minPrice = freezed,
     Object? maxPrice = freezed,
+    Object? minFloorArea = freezed,
     Object? locations = freezed,
   }) {
     return _then(_value.copyWith(
@@ -93,6 +96,10 @@ class _$SubscriptionModelCopyWithImpl<$Res>
           ? _value.maxPrice
           : maxPrice // ignore: cast_nullable_to_non_nullable
               as int,
+      minFloorArea: minFloorArea == freezed
+          ? _value.minFloorArea
+          : minFloorArea // ignore: cast_nullable_to_non_nullable
+              as int,
       locations: locations == freezed
           ? _value.locations
           : locations // ignore: cast_nullable_to_non_nullable
@@ -115,6 +122,7 @@ abstract class _$$_SubscriptionModelCopyWith<$Res>
       List<String> estateTypes,
       int minPrice,
       int maxPrice,
+      int minFloorArea,
       List<LocationModel> locations});
 }
 
@@ -137,6 +145,7 @@ class __$$_SubscriptionModelCopyWithImpl<$Res>
     Object? estateTypes = freezed,
     Object? minPrice = freezed,
     Object? maxPrice = freezed,
+    Object? minFloorArea = freezed,
     Object? locations = freezed,
   }) {
     return _then(_$_SubscriptionModel(
@@ -164,6 +173,10 @@ class __$$_SubscriptionModelCopyWithImpl<$Res>
           ? _value.maxPrice
           : maxPrice // ignore: cast_nullable_to_non_nullable
               as int,
+      minFloorArea: minFloorArea == freezed
+          ? _value.minFloorArea
+          : minFloorArea // ignore: cast_nullable_to_non_nullable
+              as int,
       locations: locations == freezed
           ? _value._locations
           : locations // ignore: cast_nullable_to_non_nullable
@@ -182,6 +195,7 @@ class _$_SubscriptionModel implements _SubscriptionModel {
       required final List<String> estateTypes,
       required this.minPrice,
       required this.maxPrice,
+      required this.minFloorArea,
       required final List<LocationModel> locations})
       : _estateTypes = estateTypes,
         _locations = locations;
@@ -206,6 +220,8 @@ class _$_SubscriptionModel implements _SubscriptionModel {
   final int minPrice;
   @override
   final int maxPrice;
+  @override
+  final int minFloorArea;
   final List<LocationModel> _locations;
   @override
   List<LocationModel> get locations {
@@ -215,7 +231,7 @@ class _$_SubscriptionModel implements _SubscriptionModel {
 
   @override
   String toString() {
-    return 'SubscriptionModel(isNotificationEnabled: $isNotificationEnabled, name: $name, assignmentType: $assignmentType, estateTypes: $estateTypes, minPrice: $minPrice, maxPrice: $maxPrice, locations: $locations)';
+    return 'SubscriptionModel(isNotificationEnabled: $isNotificationEnabled, name: $name, assignmentType: $assignmentType, estateTypes: $estateTypes, minPrice: $minPrice, maxPrice: $maxPrice, minFloorArea: $minFloorArea, locations: $locations)';
   }
 
   @override
@@ -233,6 +249,8 @@ class _$_SubscriptionModel implements _SubscriptionModel {
             const DeepCollectionEquality().equals(other.minPrice, minPrice) &&
             const DeepCollectionEquality().equals(other.maxPrice, maxPrice) &&
             const DeepCollectionEquality()
+                .equals(other.minFloorArea, minFloorArea) &&
+            const DeepCollectionEquality()
                 .equals(other._locations, _locations));
   }
 
@@ -246,6 +264,7 @@ class _$_SubscriptionModel implements _SubscriptionModel {
       const DeepCollectionEquality().hash(_estateTypes),
       const DeepCollectionEquality().hash(minPrice),
       const DeepCollectionEquality().hash(maxPrice),
+      const DeepCollectionEquality().hash(minFloorArea),
       const DeepCollectionEquality().hash(_locations));
 
   @JsonKey(ignore: true)
@@ -270,6 +289,7 @@ abstract class _SubscriptionModel implements SubscriptionModel {
       required final List<String> estateTypes,
       required final int minPrice,
       required final int maxPrice,
+      required final int minFloorArea,
       required final List<LocationModel> locations}) = _$_SubscriptionModel;
 
   factory _SubscriptionModel.fromJson(Map<String, dynamic> json) =
@@ -287,6 +307,8 @@ abstract class _SubscriptionModel implements SubscriptionModel {
   int get minPrice;
   @override
   int get maxPrice;
+  @override
+  int get minFloorArea;
   @override
   List<LocationModel> get locations;
   @override

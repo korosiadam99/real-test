@@ -14,7 +14,11 @@ class SubscriptionsPage extends StatefulWidget {
 }
 
 class _SubscriptionsPageState extends State<SubscriptionsPage> {
-  SubscriptionCubit subscriptionCubit = SubscriptionCubit();
+  ///Since you don't have a DI container and SubscriptionCubit is not a Singleton,
+  ///this would instantiate a new cubit for every newly rendered SubscriptionsPage.
+  ///This breaks the apps states continuity, not having one state machine
+  ///serving the widget every time when a new instance is created.
+  final subscriptionCubit = SubscriptionCubit();
 
   Widget buildSomethingWentWrong() {
     return Row(
@@ -31,6 +35,10 @@ class _SubscriptionsPageState extends State<SubscriptionsPage> {
           onPressed: (() => subscriptionCubit.getSubscriptions()),
           icon: const Icon(
             Icons.refresh,
+
+            ///Prefer to have one class for all the colors the app uses and reference that class in code
+            ///That way if the design team wants to modify the brand colors, you only have to rewrite it in one place
+            ///It's generally a good thin to strive for a single source of truth, not just for colors.
             color: Colors.grey,
           ),
         )
@@ -40,12 +48,13 @@ class _SubscriptionsPageState extends State<SubscriptionsPage> {
 
   Widget buildSubscriptionList(List<SubscriptionModel> subscriptions) {
     return ListView.builder(
-      physics: const BouncingScrollPhysics(),
-      itemCount: subscriptions.length,
-      itemBuilder: (context, index) {
-        return CustomSubscriptionCard(subscriptions[index]);
-      },
-    );
+        physics: const BouncingScrollPhysics(),
+        itemCount: subscriptions.length,
+
+        ///arrow functions make the code more readable, especially in a widget tree
+        ///This is just an opinion, so not using arrow is not a mistake
+        itemBuilder: (context, index) =>
+            CustomSubscriptionCard(subscriptions[index]));
   }
 
   Widget get buildBody {

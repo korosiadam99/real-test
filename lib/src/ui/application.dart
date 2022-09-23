@@ -9,11 +9,17 @@ class Application extends StatefulWidget {
 }
 
 class _ApplicationState extends State<Application> {
-  late AppRouter _appRouter;
+  ///https://stackoverflow.com/questions/59611811/is-there-any-difference-between-assigning-value-to-the-variable-inside-of-initst
+  ///Assigning things when declaring them or assigning them in initState:
+  ///either way is fine, but prefer picking one and sticking with it.
+  ///you assign AppRouter in initState, but in SubscriptionsPage you:
+  ///SubscriptionCubit subscriptionCubit = SubscriptionCubit();
+  ///Having consistency in the code makes it readable
+  final AppRouter _appRouter = AppRouter();
 
   @override
   void initState() {
-    _appRouter = AppRouter();
+    // _appRouter = AppRouter();
     super.initState();
   }
 

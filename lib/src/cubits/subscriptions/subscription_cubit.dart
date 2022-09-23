@@ -16,8 +16,8 @@ class SubscriptionCubit extends Cubit<SubscriptionStates> {
       const Loading(),
     );
     try {
-      List<SubscriptionModel> subscriptions =
-          await SubscriptionRepository.getSubscriptions();
+      ///This dependency is not injected, this makes the cubit harder to test
+      final subscriptions = await SubscriptionRepository().getSubscriptions();
       emit(
         Success(subscriptions),
       );
